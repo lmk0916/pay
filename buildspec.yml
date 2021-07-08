@@ -2,12 +2,12 @@ version: 0.2
 
 env:
   variables:
-    _PROJECT_NAME: "skccuser25-pay"
+    _PROJECT_NAME: "user13-pay"
 
 phases:
   install:
     runtime-versions:
-      java: openjdk8
+      java: corretto8
       docker: 18
     commands:
       - echo install kubectl
@@ -44,7 +44,7 @@ phases:
           kind: Service
           metadata:
             name: $_PROJECT_NAME
-            namespace: istio-cb-ns
+            namespace: default
             labels:
               app: $_PROJECT_NAME
           spec:
@@ -60,7 +60,7 @@ phases:
           kind: Deployment
           metadata:
             name: $_PROJECT_NAME
-            namespace: istio-cb-ns
+            namespace: default
             labels:
               app: $_PROJECT_NAME
           spec:
